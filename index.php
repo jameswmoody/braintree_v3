@@ -12,7 +12,7 @@
 
 			$clientToken = Braintree_ClientToken::generate();
 		?>
-		<title>Give Me Money</title>
+		<title>Drop In v3</title>
 	</head>
 	<body>
 	<div id="body-container">
@@ -20,6 +20,11 @@
 			<form id="payment-form" method="post" action="checkout.php">
 				<input type="text" name="amount" placeholder="Amount" value="<?php echo $amount;?>">
 				<input type="text" name="email" placeholder="Email" value="<?php echo $email;?>">
+				<input class="form-field" type="text" name="firstName" placeholder="First" value="<?php echo $firstName;?>">
+				<input class="form-field" type="text" name="lastName" placeholder="Last" value="<?php echo $lastName;?>">
+				<input class="form-field" type="text" name="streetAddress" placeholder="Street Address" value="<?php echo $streetAddress;?>">
+				<input class="form-field" type="text" name="city" placeholder="City" value="<?php echo $city;?>">
+				<input class="form-field" type="text" name="state" placeholder="State/Province" value="<?php echo $state;?>">
 				<div id="dropin"></div>
 				<input type="hidden" name="nonce">
 				<input class="button fade-in" id="submit-button" type="submit" value="Give Me Money"><br><br>

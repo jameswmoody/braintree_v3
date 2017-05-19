@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <?php
-      ini_set('display_errors',1);
+      ini_set('display_errors', 1);
       error_reporting(1);
       require_once '../lib/braintree.php';
 
@@ -43,12 +43,6 @@
       background-position: right bottom;
       outline: none;
     }
-    /*.cardinfo-exp-date {
-      width: 30%;
-    }
-    .cardinfo-cvv {
-      width: 90px;
-    }*/
     label {
       font-family: monospace;
     }
@@ -57,66 +51,68 @@
   </head>
   <body>
     <div class="container form-wrapper">
-    <form action="../checkout.php" id="my-sample-form" method="post">
-      <div class="row">
-    </div>
+      <form action="../checkout.php" id="form" method="post">
 
-    <div class="row">
-      <div class="col-xs-6">
-      <input class="form-field" type="text" name="firstName" placeholder="First" value="<?php echo $firstName;?>">
-    </div>
-    <div class="col-xs-6">
+        <div class="row">
+          <div class="col-xs-6">
+            <input class="form-field" type="text" name="firstName" placeholder="First" value="<?php echo $firstName;?>">
+          </div>
+          <div class="col-xs-6">
             <input class="form-field" type="text" name="lastName" placeholder="Last" value="<?php echo $lastName;?>">
-      </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-3">
-      <input class="form-field" type="text" name="streetAddress" placeholder="Street Address" value="<?php echo $streetAddress;?>">
-    </div>
-    <div class="col-xs-3">
-      <input class="form-field" type="text" name="locality" placeholder="City" value="<?php echo $locality;?>">
-    </div>
-    <div class="col-xs-3">
-      <input class="form-field" type="text" name="state" placeholder="State/Province" value="<?php echo $state;?>">
-    </div>
-    <div class="col-xs-3">
-      <div id="postal-code" class="hosted-field"></div>
-    </div>
-  </div>
-
-      <div class="row">
-        <div class="cardinfo-number col-xs-6">
-          <input class="form-field" type="text" name="email" placeholder="Email" value="<?php echo $email;?>">
+          </div>
         </div>
-        <div class="col-xs-6">
-        <input class="form-field" type="text" name="amount" placeholder="Amount" value="<?php echo $amount;?>">
-      </div>
-      </div>
 
-      <div class="cardinfo-wrapper row">
-        <div class="cardinfo-number col-xs-4">
-          <div id="card-number" class="hosted-field"></div>
+        <div class="row">
+          <div class="col-xs-3">
+            <input class="form-field" type="text" name="streetAddress" placeholder="Street Address" value="<?php echo $streetAddress;?>">
+          </div>
+          <div class="col-xs-3">
+            <input class="form-field" type="text" name="city" placeholder="City" value="<?php echo $city;?>">
+          </div>
+          <div class="col-xs-3">
+            <input class="form-field" type="text" name="state" placeholder="State/Province" value="<?php echo $state;?>">
+          </div>
+          <div class="col-xs-3">
+            <div id="postal-code" class="hosted-field"></div>
+          </div>
         </div>
-        <div class="cardinfo-cvv col-xs-4">
-          <div id="cvv" class="hosted-field"></div>
-        </div>
-        <div class="cardinfo-exp-date col-xs-4">
-          <div id="expiration-date" class="hosted-field"></div>
-        </div>
-      </div>
 
-      <input type="hidden" name="nonce">
-      <br>
-      <input type="submit" value="Pay" />
-    </form>
+        <div class="row">
+          <div class="col-xs-6">
+            <input class="form-field" type="text" name="email" placeholder="Email" value="<?php echo $email;?>">
+          </div>
+          <div class="col-xs-6">
+            <input class="form-field" type="text" name="amount" placeholder="Amount" value="<?php echo $amount;?>">
+          </div>
+        </div>
+
+        <div class="cardinfo-wrapper row">
+          <div class="cardinfo-number col-xs-4">
+            <div id="card-number" class="hosted-field"></div>
+          </div>
+          <div class="cardinfo-cvv col-xs-4">
+            <div id="cvv" class="hosted-field"></div>
+          </div>
+          <div class="cardinfo-exp-date col-xs-4">
+            <div id="expiration-date" class="hosted-field"></div>
+          </div>
+        </div>
+
+        <select id="country" input name="country">
+                <option value="US">US</option>
+                <option value="GB">UK</option>
+        </select>
+        <br>
+        <br>
+        <input type="hidden" name="nonce">
+        <input type="submit" value="Pay" />
+      </form>
     </div>
-  </div>
 
     <script src="https://js.braintreegateway.com/web/3.15.0/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.15.0/js/hosted-fields.min.js"></script>
     <script>
-      var form = document.querySelector('#my-sample-form');
+      var form = document.querySelector('#form');
       var submit = document.querySelector('input[type="submit"]');
 
       braintree.client.create({
