@@ -38,19 +38,23 @@ $result = Braintree_Transaction::sale([
 	 'customer' => [
 		 'firstName' => $firstName,
 		 'lastName' => $lastName,
+		 'company' => 'Braintree',
+		 'phone' => '555-777-9311',
+		 'website' => 'http://www.example.com',
 		 'email' => $email,
 		 ],
 	 'options' => [
 		 'submitForSettlement' => True,
 		 'storeInVaultOnSuccess' => True,
 	 ],
- 'billing' => [
+	 'billing' => [
 		 'firstName' => $firstName,
 		 'lastName' => $lastName,
-	 'streetAddress' => $streetAddress,
-	 'locality' => $city,
-	 'region' => $state,
-	 'countryCodeAlpha2' => $country,
+		 'company' => 'Braintree',
+		 'streetAddress' => $streetAddress,
+		 'locality' => $city,
+		 'region' => $state,
+		 'countryCodeAlpha2' => $country,
 	 ],
 ]);
 

@@ -17,83 +17,53 @@
     <title>Hosted Fields v3</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
-    <style>
-    input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #fcfcfc inset;
-    }
-    .form-wrapper {
-      width: 60%;
-    }
-    .hosted-field, .form-field {
-      height: 50px;
-      box-sizing: border-box;
-      width: 100%;
-      padding: 12px;
-      display: inline-block;
-      box-shadow: none;
-      font-family: "Courier New", Courier, monospace;
-      font-size: 14px;
-      border-radius: 6px;
-      border: 1px solid #dddddd;
-      line-height: 20px;
-      background: #fcfcfc;
-      margin-bottom: 12px;
-      background: linear-gradient(to right, white 50%, #fcfcfc 50%);
-      background-size: 200% 100%;
-      background-position: right bottom;
-      outline: none;
-    }
-    label {
-      font-family: monospace;
-    }
-    </style>
-
+    <link rel="stylesheet" href="../style/main.css">
   </head>
   <body>
     <div class="container form-wrapper">
       <form action="../checkout.php" id="form" method="post">
 
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-6 right-field">
             <input class="form-field" type="text" name="firstName" placeholder="First" value="<?php echo $firstName;?>">
           </div>
-          <div class="col-xs-6">
+          <div class="col-xs-6 left-field">
             <input class="form-field" type="text" name="lastName" placeholder="Last" value="<?php echo $lastName;?>">
           </div>
         </div>
 
         <div class="row">
-          <div class="col-xs-3">
+          <div class="col-xs-3 right-field">
             <input class="form-field" type="text" name="streetAddress" placeholder="Street Address" value="<?php echo $streetAddress;?>">
           </div>
-          <div class="col-xs-3">
+          <div class="col-xs-3 center-field">
             <input class="form-field" type="text" name="city" placeholder="City" value="<?php echo $city;?>">
           </div>
-          <div class="col-xs-3">
+          <div class="col-xs-3 center-field">
             <input class="form-field" type="text" name="state" placeholder="State/Province" value="<?php echo $state;?>">
           </div>
-          <div class="col-xs-3">
+          <div class="col-xs-3 left-field">
             <div id="postal-code" class="hosted-field"></div>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-6 right-field">
             <input class="form-field" type="text" name="email" placeholder="Email" value="<?php echo $email;?>">
           </div>
-          <div class="col-xs-6">
+          <div class="col-xs-6 left-field">
             <input class="form-field" type="text" name="amount" placeholder="Amount" value="<?php echo $amount;?>">
           </div>
         </div>
 
         <div class="cardinfo-wrapper row">
-          <div class="cardinfo-number col-xs-4">
+          <div class="cardinfo-number col-xs-4 right-field">
             <div id="card-number" class="hosted-field"></div>
           </div>
-          <div class="cardinfo-cvv col-xs-4">
+          <div class="cardinfo-cvv col-xs-4 center-field">
             <div id="cvv" class="hosted-field"></div>
           </div>
-          <div class="cardinfo-exp-date col-xs-4">
+          <div class="cardinfo-exp-date col-xs-4 left-field">
             <div id="expiration-date" class="hosted-field"></div>
           </div>
         </div>
@@ -105,7 +75,7 @@
         <br>
         <br>
         <input type="hidden" name="nonce">
-        <input type="submit" value="Pay" />
+        <input class="btn btn-success" type="submit" value="Checkout" />
       </form>
     </div>
 
