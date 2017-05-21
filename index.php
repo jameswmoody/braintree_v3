@@ -19,42 +19,76 @@
 		<link rel="stylesheet" href="style/main.css">
 	</head>
 	<body>
-	<div class="container form-wrapper">
+
+	<div class="container">
+
+		<center><h1>Braintree PHP Integration</h1></center>
+
+		<section class="menu">
+			<section class="menu-box">
+				<center><h4>Navigation</h4></center>
+				<ul class="nav-links">
+					<li><a href="#">Create a Transaction</a></li>
+					<li><a href="#">Void a Transaction</a></li>
+					<li><a href="#">Issue a Refund</a></li>
+					<li><a href="#">Create a Sub-merchant</a></li>
+					<li><a href="#">Marketplace Transaction</a></li>
+					<li><a href="#">Create a Subscription</a></li>
+				</ul>
+			</section>
+
+			<section class="menu-box test-values">
+				<center><h4>Test Values</h4></center>
+				<center><h5>Valid Card Numbers</h5></center>
+				<ul class="test-cards">
+					<li>Amex: 3782 822463 10005</li>
+					<li>JCB: 3530 1113 3330 0000</a></li>
+					<li>MC: 5555 5555 5555 4444</a></li>
+					<li>V: 4111 1111 1111 1111</a></li>
+					<li>D: 6011 1111 1111 1117</a></li>
+				</ul>
+				<center><h5>Fraud</h5></center>
+				<ul class="test-cards">
+					<li>V: 4000 1111 1111 1511</a></li>
+				</ul>
+				<br>
+				<center><h5><a href="#">More Test Values</a></h5></center>
+			</section>
+		</section>
+
+		<section class="form-wrapper">
 			<form id="form" method="post" action="checkout.php">
 
-				<div class="customer-data">
+				<div class="dropin-customer-data">
 					<div class="row">
-						<div class="col-xs-6 right-field">
+						<div class="col-xs-3 field-box">
 							<label for="amount">Amount</label>
 							<input class="dropin-form-field" type="text" name="amount" value="<?php echo $amount;?>">
 						</div>
-						<div class="col-xs-6 left-field">
+						<div class="col-xs-3 field-box">
 							<label for="email">Email</label>
 							<input class="dropin-form-field" type="text" name="email" value="<?php echo $email;?>">
 						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-xs-6 right-field">
+						<div class="col-xs-3 field-box">
 							<label for="first">First</label>
-							<input class="dropin-form-field" type="text" name="firstName" value="<?php echo $firstName;?>">
+							<input class="dropin-form-field" type="text" name="first-name" value="<?php echo $firstName;?>">
 						</div>
-						<div class="col-xs-6 left-field">
+						<div class="col-xs-3 field-box">
 							<label for="last">Last</label>
-							<input class="dropin-form-field" type="text" name="lastName" value="<?php echo $lastName;?>">
+							<input class="dropin-form-field" type="text" name="last-name" value="<?php echo $lastName;?>">
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-xs-4 right-field">
+						<div class="col-xs-4 field-box">
 							<label for="streetAddress">Street Address</label>
-							<input class="dropin-form-field" type="text" name="streetAddress" value="<?php echo $streetAddress;?>">
+							<input class="dropin-form-field" type="text" name="street-address" value="<?php echo $streetAddress;?>">
 						</div>
-						<div class="col-xs-4 center-field">
+						<div class="col-xs-4 field-box">
 							<label for="city">City</label>
 							<input class="dropin-form-field" type="text" name="city" value="<?php echo $city;?>">
 						</div>
-						<div class="col-xs-4 left-field">
+						<div class="col-xs-4 field-box">
 							<label for="state">State</label>
 							<input class="dropin-form-field" type="text" name="state" value="<?php echo $state;?>">
 						</div>
@@ -64,32 +98,37 @@
 				<div id="dropin"></div>
 
 				<div class="options">
-					<label for="country">Country</label>
-					<select id="country" input name="country">
-									<option value="US">US</option>
-									<option value="GB">UK</option>
-					</select>
-					<label for="settlement">Submit for Settlement</label>
-					<input id="settlement" type="checkbox" checked data-toggle="toggle" data-style="android" data-size="small">
-					<label for="vault">Store in Vault on Success</label>
-					<input id="vault" type="checkbox" checked data-toggle="toggle" data-style="android" data-size="small">
-					<label for="skip-atf">Skip Advanced Fraud Tools</label>
-					<input id="skip-atf" type="checkbox" checked data-toggle="toggle" data-style="android" data-size="small">
-					<label for="skip-avs">Skip AVS Rules</label>
-					<input id="skip-avs" type="checkbox" checked data-toggle="toggle" data-style="android" data-size="small">
-					<label for="skip-cvv">Skip CVV Rules</label>
-					<input id="skip-cvv" type="checkbox" checked data-toggle="toggle" data-style="android" data-size="small">
+					<div class="row">
+						<label class="options-label" for="country">Country:</label>
+						<select id="country" name="country">
+							<option value="US">US</option>
+							<option value="GB">UK</option>
+							<option value="FR">FR</option>
+							<option value="AU">AU</option>
+							<option value="JP">JP</option>
+						</select>
+						<label class="options-label" for="submit-for-settlement">Submit for Settlement: <input id="submit-for-settlement" name="submitForSettlement" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="vault">Store in Vault on Success: <input id="vault" name="vault" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+					</div>
+					<div class="row">
+						<label class="options-label" for="skip-atf">Skip Advanced Fraud Tools: <input id="skip-atf" name="skipAtf" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="skip-avs">Skip AVS Rules: <input id="skip-avs" name="skipAvs" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="skip-cvv">Skip CVV Rules: <input id="skip-cvv" name="skipCvv" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+					</div>
 				</div>
 
 				<input type="hidden" name="nonce">
 				<input class="btn btn-success" id="submit-button" type="submit" value="Checkout">
 			</form>
+	</section>
+
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 	<script src="https://js.braintreegateway.com/web/dropin/1.0.2/js/dropin.min.js"></script>
+	<script src="https://js.braintreegateway.com/web/3.15.0/js/data-collector.min.js"></script>
 	<script type="text/javascript">
 		$('#skip-atf').bootstrapToggle('off')
 		$('#skip-avs').bootstrapToggle('off')
@@ -129,6 +168,8 @@
       	});
 			 }
   	 });
+
+
 	</script>
 	</body>
 </html>

@@ -9,20 +9,38 @@
   Braintree_Configuration::privateKey('29da7b73fffa4613284308d08eeaf4ef');
 
 	$nonce = $_POST['nonce'];
+	$deviceData = $_POST["device-data"];
 	$firstName = $_POST["firstName"];
 	$lastName = $_POST["lastName"];
 	$email = $_POST["email"];
-	$streetAddress = $_POST["streetAddress"];
+	$streetAddress = $_POST["street-address"];
 	$city = $_POST["city"];
 	$state = $_POST["state"];
 	$country = $_POST["country"];
 	$amount = $_POST["amount"];
 
-// Merchant Account Selection
+	echo($deviceData);
+
+	// Options
+	$submitForSettlement = $_POST["submitForSettlement"];
+	$vault = $_POST["vault"];
+	$skipAtf = $_POST["skipAtf"];
+	$skipAvs = $_POST["skipAvs"];
+	$skipCvv = $_POST["skipCvv"];
+	// Merchant Account Selection
 	if ($country == "US")
 		$merchantAccountId = 'myphpcompany';
-	else
+	elseif ($country == "UK")
+		$merchantAccountId = 'myphpcompany_GBP';
+	elseif ($country == "FR")
 		$merchantAccountId = 'myphpcompany_EUR';
+	elseif ($country == "AU")
+		$merchantAccountId = 'myphpcompany_AUD';
+	elseif ($country == "JP")
+		$merchantAccountId = 'myphpcompany_JPY';
+	else
+		$merchantAccountId = 'myphpcompany';
+
 
 // API Call
 
@@ -35,6 +53,7 @@ $result = Braintree_Transaction::sale([
 		 'phone' => '555-555-5555',
 		 'url' => 'company.com',
 	 ],
+	 'deviceData' => $deviceData,
 	 'customer' => [
 		 'firstName' => $firstName,
 		 'lastName' => $lastName,
@@ -44,8 +63,11 @@ $result = Braintree_Transaction::sale([
 		 'email' => $email,
 		 ],
 	 'options' => [
-		 'submitForSettlement' => True,
-		 'storeInVaultOnSuccess' => True,
+		 'submitForSettlement' => $submitForSettlement,
+		 'storeInVaultOnSuccess' => $vault,
+		 'skipAdvancedFraudChecking' => $skipAtf,
+		 'skipAvs' => $skipAvs,
+		 'skipCvv' => $skipCvv
 	 ],
 	 'billing' => [
 		 'firstName' => $firstName,
@@ -64,6 +86,6 @@ $result = Braintree_Transaction::sale([
 	echo("Sucess! Transaction ID is " . $result->transaction->id . ". Amount " . $result->transaction->amount . " has been " . $result->transaction->status . ".");
 else
 	echo($result->message);
-echo (" Refreshing...");
+	echo (" Refreshing...");
 
 ?>

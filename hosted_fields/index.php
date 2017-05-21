@@ -16,71 +16,135 @@
     <meta charset="UTF-8">
     <title>Hosted Fields v3</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
     <link rel="stylesheet" href="../style/main.css">
   </head>
   <body>
-    <div class="container form-wrapper">
+
+  <div class="container">
+
+    <center><h1>Braintree PHP Integration</h1></center>
+
+    <section class="menu">
+			<section class="menu-box">
+				<center><h4>Navigation</h4></center>
+				<ul class="nav-links">
+					<li><a href="#">Create a Transaction</a></li>
+					<li><a href="#">Void a Transaction</a></li>
+					<li><a href="#">Issue a Refund</a></li>
+					<li><a href="#">Create a Sub-merchant</a></li>
+					<li><a href="#">Marketplace Transaction</a></li>
+					<li><a href="#">Create a Subscription</a></li>
+				</ul>
+			</section>
+
+			<section class="menu-box test-values">
+				<center><h4>Test Values</h4></center>
+				<center><h5>Valid Card Numbers</h5></center>
+				<ul class="test-cards">
+					<li>Amex: 3782 822463 10005</li>
+					<li>JCB: 3530 1113 3330 0000</a></li>
+					<li>MC: 5555 5555 5555 4444</a></li>
+					<li>V: 4111 1111 1111 1111</a></li>
+					<li>D: 6011 1111 1111 1117</a></li>
+				</ul>
+				<center><h5>Fraud</h5></center>
+				<ul class="test-cards">
+					<li>V: 4000 1111 1111 1511</a></li>
+				</ul>
+				<br>
+				<center><h5><a href="#">More Test Values</a></h5></center>
+			</section>
+		</section>
+
+    <section class="form-wrapper">
       <form action="../checkout.php" id="form" method="post">
 
         <div class="row">
-          <div class="col-xs-6 right-field">
-            <input class="form-field" type="text" name="firstName" placeholder="First" value="<?php echo $firstName;?>">
+          <div class="col-xs-6 field-box">
+            <input class="form-field" type="text" name="first-name" placeholder="First" value="<?php echo $firstName;?>">
           </div>
-          <div class="col-xs-6 left-field">
-            <input class="form-field" type="text" name="lastName" placeholder="Last" value="<?php echo $lastName;?>">
+          <div class="col-xs-6 field-box">
+            <input class="form-field" type="text" name="last-name" placeholder="Last" value="<?php echo $lastName;?>">
           </div>
         </div>
 
         <div class="row">
-          <div class="col-xs-3 right-field">
-            <input class="form-field" type="text" name="streetAddress" placeholder="Street Address" value="<?php echo $streetAddress;?>">
-          </div>
-          <div class="col-xs-3 center-field">
+          <div class="col-xs-3 field-box">
             <input class="form-field" type="text" name="city" placeholder="City" value="<?php echo $city;?>">
           </div>
-          <div class="col-xs-3 center-field">
+          <div class="col-xs-3 field-box">
             <input class="form-field" type="text" name="state" placeholder="State/Province" value="<?php echo $state;?>">
           </div>
-          <div class="col-xs-3 left-field">
+          <div class="col-xs-3 field-box">
+            <input class="form-field" type="text" name="street-address" placeholder="Street Address" value="<?php echo $streetAddress;?>">
+          </div>
+          <div class="col-xs-3 field-box">
             <div id="postal-code" class="hosted-field"></div>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-xs-6 right-field">
+          <div class="col-xs-6 field-box">
             <input class="form-field" type="text" name="email" placeholder="Email" value="<?php echo $email;?>">
           </div>
-          <div class="col-xs-6 left-field">
+          <div class="col-xs-6 field-box">
             <input class="form-field" type="text" name="amount" placeholder="Amount" value="<?php echo $amount;?>">
           </div>
         </div>
 
         <div class="cardinfo-wrapper row">
-          <div class="cardinfo-number col-xs-4 right-field">
+          <div class="cardinfo-number col-xs-4 field-box">
             <div id="card-number" class="hosted-field"></div>
           </div>
-          <div class="cardinfo-cvv col-xs-4 center-field">
+          <div class="cardinfo-cvv col-xs-4 field-box">
             <div id="cvv" class="hosted-field"></div>
           </div>
-          <div class="cardinfo-exp-date col-xs-4 left-field">
+          <div class="cardinfo-exp-date col-xs-4 field-box">
             <div id="expiration-date" class="hosted-field"></div>
           </div>
         </div>
 
-        <select id="country" input name="country">
-                <option value="US">US</option>
-                <option value="GB">UK</option>
-        </select>
-        <br>
-        <br>
+        <div class="options hf-options">
+					<div class="row">
+						<label class="options-label" for="country">Country:
+						  <select id="country" name="country">
+							  <option value="US">US</option>
+							  <option value="GB">UK</option>
+							  <option value="FR">FR</option>
+							  <option value="AU">AU</option>
+							  <option value="JP">JP</option>
+						  </select>
+            </label>
+						<label class="options-label" for="submit-for-settlement">Submit for Settlement: <input id="submit-for-settlement" name="submitForSettlement" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="vault">Store in Vault on Success: <input id="vault" name="vault" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+					</div>
+					<div class="row">
+						<label class="options-label" for="skip-atf">Skip Advanced Fraud Tools: <input id="skip-atf" name="skipAtf" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="skip-avs">Skip AVS Rules: <input id="skip-avs" name="skipAvs" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="skip-cvv">Skip CVV Rules: <input id="skip-cvv" name="skipCvv" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+					</div>
+				</div>
+
         <input type="hidden" name="nonce">
-        <input class="btn btn-success" type="submit" value="Checkout" />
+        <input type="hidden" name="device-data">
+        <input class="btn btn-success" id="submit-button" type="submit" value="Checkout" />
       </form>
-    </div>
+    </section>
+  </div>
 
     <script src="https://js.braintreegateway.com/web/3.15.0/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.15.0/js/hosted-fields.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.15.0/js/data-collector.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script type="text/javascript">
+      $('#skip-atf').bootstrapToggle('off')
+      $('#skip-avs').bootstrapToggle('off')
+      $('#skip-cvv').bootstrapToggle('off')
+    </script>
     <script>
       var form = document.querySelector('#form');
       var submit = document.querySelector('input[type="submit"]');
@@ -92,6 +156,17 @@
           console.error(clientErr);
           return;
         }
+
+        braintree.dataCollector.create({
+          client: clientInstance,
+          kount: true
+        }, function (err, dataCollectorInstance) {
+          if (err) {
+            console.error(err);
+            return;
+          }
+          form.querySelector('input[name="device-data"]').value = dataCollectorInstance.deviceData;
+        });
 
         braintree.hostedFields.create({
           client: clientInstance,
