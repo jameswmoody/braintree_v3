@@ -12,7 +12,7 @@
 
 			$clientToken = Braintree_ClientToken::generate();
 		?>
-		<title>Refund</title>
+		<title>Void</title>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
@@ -28,8 +28,8 @@
 				<center><h4>Navigation</h4></center>
 				<ul class="nav-links">
 					<li><a href="../index.php">Create a Transaction</a></li>
-					<li><a href="../void/index.php">Void a Transaction</a></li>
-					<li><a href="index.php">Issue a Refund</a></li>
+					<li><a href="/index.php">Void a Transaction</a></li>
+					<li><a href="../refund/index.php">Issue a Refund</a></li>
 					<li><a href="../submerchant/index.php">Create a Sub-merchant</a></li>
 					<li><a href="../marketplace/index.php">Marketplace Transaction</a></li>
 					<li><a href="../subscription/index.php">Create a Subscription</a></li>
@@ -56,17 +56,11 @@
 		</section>
 
 		<section class="form-wrapper">
-			<form id="form" method="post" action="refund.php">
-      <h3>Refund</h3>
+			<form id="form" method="post" action="void.php">
+      <h3>Void</h3>
         <div class="row">
-          <div class="col-xs-4 field-box">
+          <div class="col-xs-12 field-box">
             <input class="form-field" type="text" name="txn-id" placeholder="Transaction ID" value="<?php echo $txnId;?>">
-          </div>
-          <div class="col-xs-4 field-box">
-            <input class="form-field" type="text" name="amount" placeholder="Amount" value="<?php echo $amount;?>">
-          </div>
-          <div class="col-xs-4 field-box">
-            <input class="form-field" type="text" name="order-id" placeholder="Order ID (optional)" value="<?php echo $orderId;?>">
           </div>
         </div>
         <br>

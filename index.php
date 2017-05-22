@@ -57,7 +57,7 @@
 
 		<section class="form-wrapper">
 			<form id="form" method="post" action="checkout.php">
-				<h3>Drop-In v3 Transaction</h3>
+				<h3>Drop-In v3 Transaction <span class="tagline">(want <a href="hosted_fields/index.php">Hosted Fields?</a>)<span></h3>
 				<div class="dropin-customer-data">
 					<div class="row">
 						<div class="col-xs-3 field-box">

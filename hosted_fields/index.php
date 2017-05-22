@@ -33,7 +33,7 @@
           <li><a href="../index.php">Create a Transaction</a></li>
 					<li><a href="../void/index.php">Void a Transaction</a></li>
 					<li><a href="../refund/index.php">Issue a Refund</a></li>
-          <li><a href="../submerchant/index.php">Create a Sub-merchant</a></li>
+					<li><a href="../submerchant/index.php">Create a Sub-merchant</a></li>
 					<li><a href="../marketplace/index.php">Marketplace Transaction</a></li>
 					<li><a href="../subscription/index.php">Create a Subscription</a></li>
 				</ul>
@@ -60,7 +60,7 @@
 
     <section class="form-wrapper">
       <form action="../checkout.php" id="form" method="post">
-        <h3>Hosted Fields v3 Transaction</h3>
+        <h3>Hosted Fields v3 Transaction <span class="tagline">(want <a href="../index.php">the Drop-In?</a>)<span></h3>
         <div class="row">
           <div class="col-xs-6 field-box">
             <input class="form-field" type="text" name="first-name" placeholder="First" value="<?php echo $firstName;?>">
