@@ -64,7 +64,7 @@
           </div>
         </div>
         <br>
-				<input class="btn btn-success" id="submit-button" type="submit" value="Refund">
+				<input class="btn btn-danger" id="submit-button" type="submit" value="Void">
 			</form>
 	</section>
 
