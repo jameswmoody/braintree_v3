@@ -21,19 +21,18 @@
 	<body>
 
 	<div class="container">
-
 		<center><h1>Braintree PHP Integration</h1></center>
 
 		<section class="menu">
 			<section class="menu-box">
 				<center><h4>Navigation</h4></center>
 				<ul class="nav-links">
-					<li><a href="#">Create a Transaction</a></li>
-					<li><a href="#">Void a Transaction</a></li>
-					<li><a href="#">Issue a Refund</a></li>
-					<li><a href="#">Create a Sub-merchant</a></li>
-					<li><a href="#">Marketplace Transaction</a></li>
-					<li><a href="#">Create a Subscription</a></li>
+					<li><a href="index.php">Create a Transaction</a></li>
+					<li><a href="void/index.php">Void a Transaction</a></li>
+					<li><a href="refund/index.php">Issue a Refund</a></li>
+          <li><a href="submerchant/index.php">Create a Sub-merchant</a></li>
+					<li><a href="marketplace/index.php">Marketplace Transaction</a></li>
+					<li><a href="subscription/index.php">Create a Subscription</a></li>
 				</ul>
 			</section>
 
@@ -58,7 +57,7 @@
 
 		<section class="form-wrapper">
 			<form id="form" method="post" action="checkout.php">
-
+				<h3>Drop-In v3 Transaction</h3>
 				<div class="dropin-customer-data">
 					<div class="row">
 						<div class="col-xs-3 field-box">
