@@ -14,7 +14,7 @@
       $clientToken = Braintree_ClientToken::generate();
     ?>
     <meta charset="UTF-8">
-    <title>Hosted Fields v3</title>
+    <title>Marketplace</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
@@ -59,8 +59,8 @@
 		</section>
 
     <section class="form-wrapper">
-      <form action="../checkout.php" id="form" method="post">
-        <h3>Hosted Fields v3 Transaction <span class="tagline">(want <a href="../index.php">the Drop-In?</a>)</span></h3>
+      <form action="marketplace.php" id="form" method="post">
+        <h3>Marketplace Transaction</h3>
         <div class="row">
           <div class="col-xs-6 field-box">
             <input class="form-field" type="text" name="first-name" placeholder="First" value="<?php echo $firstName;?>">
@@ -86,11 +86,14 @@
         </div>
 
         <div class="row">
-          <div class="col-xs-6 field-box">
+          <div class="col-xs-4 field-box">
             <input class="form-field" type="text" name="email" placeholder="Email" value="<?php echo $email;?>">
           </div>
-          <div class="col-xs-6 field-box">
+          <div class="col-xs-4 field-box">
             <input class="form-field" type="text" name="amount" placeholder="Amount" value="<?php echo $amount;?>">
+          </div>
+          <div class="col-xs-4 field-box">
+            <input class="form-field" type="text" name="service-fee" placeholder="Service Fee" value="<?php echo $serviceFee;?>">
           </div>
         </div>
 
@@ -108,14 +111,13 @@
 
         <div class="options hf-options">
 					<div class="row">
-						<label class="options-label" for="country">Country:
-						  <select id="country" name="country">
-							  <option value="US">US</option>
-							  <option value="GB">UK</option>
-							  <option value="FR">FR</option>
-							  <option value="AU">AU</option>
-							  <option value="JP">JP</option>
-						  </select>
+						<label class="options-label" for="country">Sub-merchant:
+              <select id="merchant-account-id" name="merchant-account-id" value="<?php echo $merchantAccountId;?>">
+                <option value="Marvin_Gaye_instant">Trouble Man Inc</option>
+                <option value="Isaac_Hayes_instant">Soulsville USA</option>
+                <option value="John_Doe_instant">Doe &amp; Doe, LLC</option>
+                <option value="myphpcompany">Master Merchant</option>
+              </select>
             </label>
 						<label class="options-label" for="submit-for-settlement">Submit for Settlement: <input id="submit-for-settlement" name="submitForSettlement" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
 						<label class="options-label" for="vault">Store in Vault on Success: <input id="vault" name="vault" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>

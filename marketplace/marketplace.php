@@ -1,7 +1,7 @@
 <?php
 	ini_set('display_errors',1);
 	error_reporting(1);
-	require 'lib/braintree.php';
+	require '../lib/braintree.php';
 
   Braintree_Configuration::environment('sandbox');
   Braintree_Configuration::merchantId('nxysnjdv3szj65ss');
@@ -18,32 +18,23 @@
 	$state = $_POST["state"];
 	$country = $_POST["country"];
 	$amount = $_POST["amount"];
+  $serviceFee = $_POST["service-fee"];
+  $merchantAccountId = $_POST["merchant-account-id"];
 
-	// Options
-	$submitForSettlement = $_POST["submit-for-settlement"];
+
+// Options
+	$submitForSettlement = $_POST["submitForSettlement"];
 	$vault = $_POST["vault"];
 	$skipAtf = $_POST["skipAtf"];
 	$skipAvs = $_POST["skipAvs"];
 	$skipCvv = $_POST["skipCvv"];
-	// Merchant Account Selection
-	if ($country == "US")
-		$merchantAccountId = 'myphpcompany';
-	elseif ($country == "UK")
-		$merchantAccountId = 'myphpcompany_GBP';
-	elseif ($country == "FR")
-		$merchantAccountId = 'myphpcompany_EUR';
-	elseif ($country == "AU")
-		$merchantAccountId = 'myphpcompany_AUD';
-	elseif ($country == "JP")
-		$merchantAccountId = 'myphpcompany_JPY';
-	else
-		$merchantAccountId = 'myphpcompany';
 
 
 // API Call
 
 $result = Braintree_Transaction::sale([
- 'amount' => $amount,
+   'amount' => $amount,
+   'serviceFeeAmount' => $serviceFee,
 	 'merchantAccountId' => $merchantAccountId,
 	 'paymentMethodNonce' => $nonce,
 	 'descriptor' => [
