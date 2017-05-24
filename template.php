@@ -7,7 +7,7 @@
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="../style/main.css">
   </head>
   <body>
 
@@ -19,12 +19,12 @@
 			<section class="menu-box">
 				<center><h4>Navigation</h4></center>
 				<ul class="nav-links">
-          <li><a href="index.php">Create a Transaction</a></li>
-					<li><a href="void/index.php">Void a Transaction</a></li>
-					<li><a href="refund/index.php">Issue a Refund</a></li>
-					<li><a href="submerchant/index.php">Create a Sub-merchant</a></li>
-					<li><a href="marketplace/index.php">Marketplace Transaction</a></li>
-					<li><a href="subscription/index.php">Create a Subscription</a></li>
+          <li><a href="../index.php">Create a Transaction</a></li>
+					<li><a href="../void/index.php">Void a Transaction</a></li>
+					<li><a href="../refund/index.php">Issue a Refund</a></li>
+					<li><a href="../submerchant/index.php">Create a Sub-merchant</a></li>
+					<li><a href="../marketplace/index.php">Marketplace Transaction</a></li>
+					<li><a href="../subscription/index.php">Create a Subscription</a></li>
 				</ul>
 			</section>
 

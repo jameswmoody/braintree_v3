@@ -347,13 +347,13 @@
                 <option value="myphpcompany">Master Merchant</option>
               </select>
             </label>
-						<label class="options-label" for="submit-for-settlement">Submit for Settlement: <input id="submit-for-settlement" name="submitForSettlement" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="submit-for-settlement">Submit for Settlement: <input id="submit-for-settlement" name="submit-for-settlement" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
 						<label class="options-label" for="vault">Store in Vault on Success: <input id="vault" name="vault" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
 					</div>
 					<div class="row">
-						<label class="options-label" for="skip-atf">Skip Advanced Fraud Tools: <input id="skip-atf" name="skipAtf" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
-						<label class="options-label" for="skip-avs">Skip AVS Rules: <input id="skip-avs" name="skipAvs" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
-						<label class="options-label" for="skip-cvv">Skip CVV Rules: <input id="skip-cvv" name="skipCvv" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="skip-atf">Skip Advanced Fraud Tools: <input id="skip-atf" name="skip-atf" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="skip-avs">Skip AVS Rules: <input id="skip-avs" name="skip-avs" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="skip-cvv">Skip CVV Rules: <input id="skip-cvv" name="skip-cvv" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
 					</div>
 				</div>
 
