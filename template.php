@@ -276,69 +276,7 @@
 		</div>
 		<?php
 
-		ini_set('display_errors',1);
-		error_reporting(1);
-		require '../lib/braintree.php';
-
-		Braintree_Configuration::environment('sandbox');
-		Braintree_Configuration::merchantId('nxysnjdv3szj65ss');
-		Braintree_Configuration::publicKey('r9bbdc9t54mrpqkz');
-		Braintree_Configuration::privateKey('29da7b73fffa4613284308d08eeaf4ef');
-
-		$firstName = $_POST["first-name"];
-		$lastName = $_POST["last-name"];
-		$email = $_POST["email"];
-		$streetAddress = $_POST["street-address"];
-		$city = $_POST["city"];
-		$state = $_POST["state"];
-		$postalCode = $_POST["postal-code"];
-		$country = "US";
-		$phone = $_POST["phone"];
-		$dateOfBirth = $_POST["date-of-birth"];
-		$businesName = $_POST["busines-name"];
-		$accountNumber = $_POST["account-number"];
-		$routingNumber = $_POST["routing-number"];
-		$tosAccepted = $_POST["tos-accepted"];
-
-		// API Call
-		$merchantAccountParams = [
-			'individual' => [
-				'firstName' => $firstName,
-				'lastName' => $lastName,
-				'email' => $email,
-				'phone' => $phone,
-				'dateOfBirth' => $dateOfBirth,
-				'ssn' => $ssn,
-				'address' => [
-					'streetAddress' => $streetAddress,
-					'locality' => $city,
-					'region' => $state,
-					'postalCode' => $postalCode
-				]
-			],
-			'business' => [
-				'dbaName' => $dbaName,
-				'address' => [
-					'streetAddress' => $streetAddress,
-					'locality' => $city,
-					'region' => $state,
-					'postalCode' => $zip
-				]
-			],
-			'funding' => [
-				'descriptor' => $dbaName . $phone,
-				'destination' => Braintree_MerchantAccount::FUNDING_DESTINATION_BANK,
-				'email' => $email,
-				'mobilePhone' => $phone,
-				'accountNumber' => $accountNumber,
-				'routingNumber' => $routingNumber
-			],
-			'tosAccepted' => true,
-			'masterMerchantAccountId' => "myphpcompany",
-			'id' => $firstName . "_" . $lastName . "_instant"
-		];
-
-		$result = Braintree_MerchantAccount::create($merchantAccountParams);
+    // API Call
 
     ?>
 
@@ -347,7 +285,7 @@
 
     	<?php if ($result->success): ?>
       	<h3>Success!</h3>
-      	<p>Sub-merchant <?php echo($result->merchantAccount->id)?> was created within the Marketplace.</p>
+      	<p>Transaction ID is <?php echo($result->transaction->id)?>. Amount <?php echo($result->transaction->amount)?> has been <?php echo($result->transaction->status)?>.</p>
 
 
     	<?php elseif ($result->transaction): ?>
@@ -371,9 +309,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
-
-
-<?php
-
-
-?>

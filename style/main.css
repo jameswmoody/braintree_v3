@@ -20,7 +20,7 @@ h3 {
 }
 
 h1, h2, h3,
-h4, h5, #submit-button {
+h4, h5, p, #submit-button {
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -63,6 +63,18 @@ h4, h5, #submit-button {
   padding-left: 10px;
 }
 
+/* Modal Styling */
+.modal-col {
+  padding: 0;
+}
+.modal-row {
+  padding: 10px;
+}
+table, th, td {
+  border: 1px solid #ACACAC;
+  padding: 5px;
+  font-family: "Courier New", Courier, monospace;
+}
 
 /* General Form Styling */
 
@@ -253,4 +265,15 @@ i {
 }
 .panel-footer {
   height: 66px;
+}
+
+/* Results */
+
+.results {
+  display: inline-block;
+  width: 876px;
+}
+
+pre {
+  background-color: #ffffff;
 }
