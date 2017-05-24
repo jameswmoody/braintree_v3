@@ -25,6 +25,7 @@
 	$skipAtf = $_POST["skipAtf"];
 	$skipAvs = $_POST["skipAvs"];
 	$skipCvv = $_POST["skipCvv"];
+	
 	// Merchant Account Selection
 	if ($country == "US")
 		$merchantAccountId = 'myphpcompany';

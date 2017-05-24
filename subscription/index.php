@@ -17,6 +17,7 @@
     <title>Subscription</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
     <link rel="stylesheet" href="../style/main.css">
   </head>
@@ -35,7 +36,7 @@
 					<li><a href="../refund/index.php">Issue a Refund</a></li>
 					<li><a href="../submerchant/index.php">Create a Sub-merchant</a></li>
 					<li><a href="../marketplace/index.php">Marketplace Transaction</a></li>
-					<li><a href="../subscription/index.php">Create a Subscription</a></li>
+					<li><a href="/subscription/index.php">Create a Subscription</a></li>
 				</ul>
 			</section>
 
@@ -59,77 +60,284 @@
 		</section>
 
     <section class="form-wrapper">
-      <form action="../checkout.php" id="form" method="post">
+      <form id="form" method="post">
         <h3>Create a Subscription</h3>
-        <div class="row">
-          <div class="col-xs-6 field-box">
-            <input class="form-field" type="text" name="first-name" placeholder="First" value="<?php echo $firstName;?>">
+
+        <div class="customer-details">
+          <div class="row">
+              <h3>Customer ID: 206084564</h3>
           </div>
-          <div class="col-xs-6 field-box">
-            <input class="form-field" type="text" name="last-name" placeholder="Last" value="<?php echo $lastName;?>">
+          <div class="contatiner">
+            <center>
+              <h4>Choose a Payment Method</h4>
+              <div class="row">
+
+                <div class="col-xs-3">
+                  <label for="payment-method-visa">
+                    <i class="fa fa-cc-visa fa-3x" aria-hidden="true"></i>
+                    <p>Visa 1111</p>
+                  </label>
+                  <br>
+                  <input type="radio" id="payment-method-visa" name="payment-method" value="visa">
+                </div>
+
+                <div class="col-xs-3">
+                  <label for="payment-method-mc">
+                    <i class="fa fa-cc-mastercard fa-3x" aria-hidden="true"></i>
+                    <p>Mastercard 4444</p>
+                  </label>
+                  <br>
+                  <input type="radio" id="payment-method-mc" name="payment-method" value="mastercard">
+                </div>
+
+                <div class="col-xs-3">
+                  <label for="payment-method-amex">
+                    <i class="fa fa-cc-amex fa-3x" aria-hidden="true"></i>
+                    <p>Amex 0005</p>
+                  </label>
+                  <br>
+                  <input type="radio" id="payment-method-amex" name="payment-method" value="amex">
+                </div>
+
+                <div class="col-xs-3">
+                  <label for="payment-method-dc">
+                    <i class="fa fa-cc-discover fa-3x" aria-hidden="true"></i>
+                    <p>Discover 1117</p>
+                  </label>
+                  <br>
+                  <input type="radio" id="payment-method-dc" name="payment-method" value="discover">
+                </div>
+
+              </div>
+            </center>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-xs-3 field-box">
-            <input class="form-field" type="text" name="city" placeholder="City" value="<?php echo $city;?>">
-          </div>
-          <div class="col-xs-3 field-box">
-            <input class="form-field" type="text" name="state" placeholder="State/Province" value="<?php echo $state;?>">
-          </div>
-          <div class="col-xs-3 field-box">
-            <input class="form-field" type="text" name="street-address" placeholder="Street Address" value="<?php echo $streetAddress;?>">
-          </div>
-          <div class="col-xs-3 field-box">
-            <div id="postal-code" class="hosted-field"></div>
-          </div>
-        </div>
+        <section id="plans">
+                <div class="row">
 
-        <div class="row">
-          <div class="col-xs-6 field-box">
-            <input class="form-field" type="text" name="email" placeholder="Email" value="<?php echo $email;?>">
-          </div>
-          <div class="col-xs-6 field-box">
-            <input class="form-field" type="text" name="amount" placeholder="Amount" value="<?php echo $amount;?>">
-          </div>
-        </div>
+                    <div class="col-md-4 text-center plans">
+                        <div class="panel panel-default panel-pricing">
+                            <div class="panel-heading">
+                                <h3>Good Plan</h3>
+                            </div>
+                            <div class="panel-body text-center">
+                                <p><strong>$15 / Month</strong></p>
+                            </div>
+                            <ul class="list-group text-center">
+                              <li class="list-group-item">
+                                <input type="checkbox" id="trial" name="trial" value="true">
+                                Free Trial
+                                <select class="cycles trial-cyles" name="trial-cyles-good">
+                                   <option>Cycles</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                                   <option value="5">5</option>
+                                   <option value="6">6</option>
+                                   <option value="7">7</option>
+                                   <option value="8">8</option>
+                                   <option value="9">9</option>
+                                   <option value="10">10</option>
+                                   <option value="11">11</option>
+                                   <option value="12 ">12</option>
+                                </select>
+                              </li>
+                              <li class="list-group-item">
+                                <input type="checkbox" id="add-on" name="add-on" value="true">
+                                $10 Add-on
+                                <select class="cycles add-on-cyles" name="add-on-cyles-good">
+                                   <option>Cycles</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                                   <option value="5">5</option>
+                                   <option value="6">6</option>
+                                   <option value="7">7</option>
+                                   <option value="8">8</option>
+                                   <option value="9">9</option>
+                                   <option value="10">10</option>
+                                   <option value="11">11</option>
+                                   <option value="12 ">12</option>
+                                </select>
+                              </li>
+                              <li class="list-group-item">
+                                <input type="checkbox" id="discount" name="discount" value="true">
+                                $5 Discount
+                                <select class="cycles discount-cyles" name="discount-cyles-good">
+                                   <option>Cycles</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                                   <option value="5">5</option>
+                                   <option value="6">6</option>
+                                   <option value="7">7</option>
+                                   <option value="8">8</option>
+                                   <option value="9">9</option>
+                                   <option value="10">10</option>
+                                   <option value="11">11</option>
+                                   <option value="12 ">12</option>
+                                </select>
+                              </li>
+                            </ul>
+                            <div class="panel-footer">
+                              <input class="btn btn-lg btn-block btn-default" id="submit-button" onclick="submitForm('subscription_good_plan.php')" type="submit" value="Buy"/>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="cardinfo-wrapper row">
-          <div class="cardinfo-number col-xs-4 field-box">
-            <div id="card-number" class="hosted-field"></div>
-          </div>
-          <div class="cardinfo-cvv col-xs-4 field-box">
-            <div id="cvv" class="hosted-field"></div>
-          </div>
-          <div class="cardinfo-exp-date col-xs-4 field-box">
-            <div id="expiration-date" class="hosted-field"></div>
-          </div>
-        </div>
+                    <div class="col-md-4 text-center plans">
+                        <div class="panel panel-info panel-pricing">
+                            <div class="panel-heading">
+                                <h3>Better Plan</h3>
+                            </div>
+                            <div class="panel-body text-center">
+                                <p><strong>$30 / Month</strong></p>
+                            </div>
+                            <ul class="list-group text-center">
+                              <li class="list-group-item">
+                                <input type="checkbox" id="trial" name="trial" value="true">
+                                Free Trial
+                                <select class="cycles trial-cyles" name="trial-cyles-better">
+                                   <option>Cycles</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                                   <option value="5">5</option>
+                                   <option value="6">6</option>
+                                   <option value="7">7</option>
+                                   <option value="8">8</option>
+                                   <option value="9">9</option>
+                                   <option value="10">10</option>
+                                   <option value="11">11</option>
+                                   <option value="12 ">12</option>
+                                </select>
+                              </li>
+                              <li class="list-group-item">
+                                <input type="checkbox" id="add-on" name="add-on" value="true">
+                                $10 Add-on
+                                <select class="cycles add-on-cyles" name="add-on-cyles-better">
+                                   <option>Cycles</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                                   <option value="5">5</option>
+                                   <option value="6">6</option>
+                                   <option value="7">7</option>
+                                   <option value="8">8</option>
+                                   <option value="9">9</option>
+                                   <option value="10">10</option>
+                                   <option value="11">11</option>
+                                   <option value="12 ">12</option>
+                                </select>
+                              </li>
+                              <li class="list-group-item">
+                                <input type="checkbox" id="discount" name="discount" value="true">
+                                $5 Discount
+                                <select class="cycles discount-cyles" name="discount-cyles-better">
+                                   <option>Cycles</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                                   <option value="5">5</option>
+                                   <option value="6">6</option>
+                                   <option value="7">7</option>
+                                   <option value="8">8</option>
+                                   <option value="9">9</option>
+                                   <option value="10">10</option>
+                                   <option value="11">11</option>
+                                   <option value="12 ">12</option>
+                                </select>
+                              </li>
+                            </ul>
+                            <div class="panel-footer">
+                              <input class="btn btn-lg btn-block btn-info" id="submit-button" onclick="submitForm('subscription_better_plan.php')" type="submit" value="Buy"/>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="options hf-options">
-					<div class="row">
-						<label class="options-label" for="country">Country:
-						  <select id="country" name="country">
-							  <option value="US">US</option>
-							  <option value="GB">UK</option>
-							  <option value="FR">FR</option>
-							  <option value="AU">AU</option>
-							  <option value="JP">JP</option>
-						  </select>
-            </label>
-						<label class="options-label" for="submit-for-settlement">Submit for Settlement: <input id="submit-for-settlement" name="submitForSettlement" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
-						<label class="options-label" for="vault">Store in Vault on Success: <input id="vault" name="vault" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
-					</div>
-					<div class="row">
-						<label class="options-label" for="skip-atf">Skip Advanced Fraud Tools: <input id="skip-atf" name="skipAtf" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
-						<label class="options-label" for="skip-avs">Skip AVS Rules: <input id="skip-avs" name="skipAvs" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
-						<label class="options-label" for="skip-cvv">Skip CVV Rules: <input id="skip-cvv" name="skipCvv" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
-					</div>
-				</div>
+                    <div class="col-md-4 text-center plans">
+                        <div class="panel panel-primary panel-pricing">
+                            <div class="panel-heading">
+                                <h3>Best Plan</h3>
+                            </div>
+                            <div class="panel-body text-center">
+                                <p><strong>$300 / Year</strong></p>
+                            </div>
+                            <ul class="list-group text-center">
+                              <li class="list-group-item">
+                                <input type="checkbox" id="trial" name="trial" value="true">
+                                Free Trial
+                                <select class="cycles trial-cyles" name="trial-cyles-best">
+                                   <option>Cycles</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                                   <option value="5">5</option>
+                                   <option value="6">6</option>
+                                   <option value="7">7</option>
+                                   <option value="8">8</option>
+                                   <option value="9">9</option>
+                                   <option value="10">10</option>
+                                   <option value="11">11</option>
+                                   <option value="12 ">12</option>
+                                </select>
+                              </li>
+                              <li class="list-group-item">
+                                <input type="checkbox" id="add-on" name="add-on" value="true">
+                                $10 Add-on
+                                <select class="cycles add-on-cyles" name="add-on-cyles-best">
+                                   <option>Cycles</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                                   <option value="5">5</option>
+                                   <option value="6">6</option>
+                                   <option value="7">7</option>
+                                   <option value="8">8</option>
+                                   <option value="9">9</option>
+                                   <option value="10">10</option>
+                                   <option value="11">11</option>
+                                   <option value="12 ">12</option>
+                                </select>
+                              </li>
+                              <li class="list-group-item">
+                                <input type="checkbox" id="discount" name="discount" value="true">
+                                $5 Discount
+                                <select class="cycles discount-cyles" name="discount-cyles-best">
+                                   <option>Cycles</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="4">4</option>
+                                   <option value="5">5</option>
+                                   <option value="6">6</option>
+                                   <option value="7">7</option>
+                                   <option value="8">8</option>
+                                   <option value="9">9</option>
+                                   <option value="10">10</option>
+                                   <option value="11">11</option>
+                                   <option value="12 ">12</option>
+                                </select>
+                              </li>
+                            </ul>
+                            <div class="panel-footer">
+                              <input class="btn btn-lg btn-block btn-primary" id="submit-button" onclick="submitForm('subscription_best_plan.php')" type="submit" value="Buy"/>
+                            </div>
+                        </div>
+                    </div>
 
-        <input type="hidden" name="nonce">
-        <input type="hidden" name="device-data">
-        <input class="btn btn-success" id="submit-button" type="submit" value="Checkout" />
+                </div>
+        </section>
+
       </form>
     </section>
   </div>
@@ -146,86 +354,11 @@
       $('#skip-cvv').bootstrapToggle('off')
     </script>
     <script>
-      var form = document.querySelector('#form');
-      var submit = document.querySelector('input[type="submit"]');
-
-      braintree.client.create({
-        authorization: '<?php echo $clientToken ?>'
-      }, function (clientErr, clientInstance) {
-        if (clientErr) {
-          console.error(clientErr);
-          return;
-        }
-
-        braintree.dataCollector.create({
-          client: clientInstance,
-          kount: true
-        }, function (err, dataCollectorInstance) {
-          if (err) {
-            console.error(err);
-            return;
-          }
-          form.querySelector('input[name="device-data"]').value = dataCollectorInstance.deviceData;
-        });
-
-        braintree.hostedFields.create({
-          client: clientInstance,
-          styles: {
-            'input': {
-              'font-size': '14px',
-              'color': '#3A3A3A',
-              'font-family': 'Courier New, Courier, monospace'
-            },
-            'input.invalid': {
-              'color': 'red'
-            },
-            'input.valid': {
-              'color': 'green'
-            },
-            '.valid': {
-              'color': 'green'
-            }
-          },
-          fields: {
-            number: {
-              selector: '#card-number',
-              placeholder: '•••• •••• •••• ••••'
-            },
-            cvv: {
-              selector: '#cvv',
-              placeholder: 'CVV'
-            },
-            expirationDate: {
-              selector: '#expiration-date',
-              placeholder: 'MM/YYYY'
-            },
-            postalCode: {
-              selector: '#postal-code',
-              placeholder: '11111'
-            }
-          }
-        }, function (hostedFieldsErr, hostedFieldsInstance) {
-          if (hostedFieldsErr) {
-            console.error(hostedFieldsErr);
-            return;
-          }
-
-          submit.removeAttribute('disabled');
-
-          form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
-              if (tokenizeErr) {
-                console.error(tokenizeErr);
-                return;
-              }
-              form.querySelector('input[name="nonce"]').value = payload.nonce;
-              form.submit();
-            });
-          }, false);
-        });
-      });
+      function submitForm(action) {
+        var form = document.getElementById('form');
+        form.action = action;
+        form.submit();
+      }
     </script>
   </body>
 </html>
