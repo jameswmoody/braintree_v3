@@ -51,9 +51,237 @@
 					<li>V: 4000 1111 1111 1511</a></li>
 				</ul>
 				<br>
-				<center><h5><a href="#">More Test Values</a></h5></center>
+				<center><h5><a href="#" data-toggle="modal" data-target="#modal">More Test Values</a></h5></center>
 			</section>
 		</section>
+
+		<div id="modal" class="modal fade bd-example-modal-lg" role="dialog">
+  		<div class="modal-dialog modal-lg">
+    		<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+        		<h3 class="modal-title">Test Values</h3>
+      		</div>
+      		<div class="modal-body">
+							<div class="row modal-row">
+								<div class="col-md-6 modal-col">
+        					<h4>Card Numbers</h4>
+									<table>
+										<tr>
+											<th>Card Value</th>
+											<th>Card Type</th>
+										</tr>
+										<tr>
+											<td>3782 822463 10005</td>
+											<td>American Express</td>
+										</tr>
+										<tr>
+											<td>371 4496353 98431	</td>
+											<td>American Express</td>
+										</tr>
+										<tr>
+											<td>6011 1111 1111 1117</td>
+											<td>Discover</td>
+										</tr>
+										<tr>
+											<td>3530 1113 3330 0000</td>
+											<td>JCB</td>
+										</tr>
+										<tr>
+											<td>6304 0000 0000 0000</td>
+											<td>Maestro</td>
+										</tr>
+										<tr>
+											<td>5555 5555 5555 4444</td>
+											<td>Mastercard</td>
+										</tr>
+										<tr>
+											<td>2223 0000 4840 0011</td>
+											<td>Mastercard</td>
+										</tr>
+										<tr>
+											<td>4111 1111 1111 1111</td>
+											<td>Visa</td>
+										</tr>
+										<tr>
+											<td>4005 5192 0000 0004</td>
+											<td>Visa</td>
+										</tr>
+										<tr>
+											<td>4009 3488 8888 1881</td>
+											<td>Visa</td>
+										</tr>
+										<tr>
+											<td>4012 0000 3333 0026</td>
+											<td>Visa</td>
+										</tr>
+										<tr>
+											<td>4012 0000 7777 7777</td>
+											<td>Visa</td>
+										</tr>
+										<tr>
+											<td>4012 8888 8888 1881</td>
+											<td>Visa</td>
+										</tr>
+										<tr>
+											<td>4217 6511 1111 1119</td>
+											<td>Visa</td>
+										</tr>
+										<tr>
+											<td>4500 6000 0000 0061</td>
+											<td>Visa</td>
+										</tr>
+									</table>
+								</div>
+								<div class="col-md-6 modal-col">
+									<h4>Card type indicators</h4>
+									<table>
+										<tr>
+											<th>Card Value</th>
+											<th>Card Information</th>
+										</tr>
+										<tr>
+											<td>4500 6000 0000 0061</td>
+											<td>prepaid = "Yes"</td>
+										</tr>
+										<tr>
+											<td>4009 0400 0000 0009</td>
+											<td>commercial = "Yes"</td>
+										</tr>
+										<tr>
+											<td>4005 5192 0000 0004</td>
+											<td>Durbin regulated = "Yes"</td>
+										</tr>
+										<tr>
+											<td>4012 0000 3333 0026</td>
+											<td>healthcare = "Yes</td>
+										</tr>
+										<tr>
+											<td>4012 0000 3333 0125</td>
+											<td>debit = "Yes"</td>
+										</tr>
+										<tr>
+											<td>4012 0000 3333 0224</td>
+											<td>payroll = "Yes"</td>
+										</tr>
+										<tr>
+											<td>4012 0000 3333 0422</td>
+											<td>all values = "No"</td>
+										</tr>
+										<tr>
+											<td>4012 0000 3333 0323</td>
+											<td>all values = "Unknown"</td>
+										</tr>
+										<tr>
+											<td>4012 0000 3333 0620</td>
+											<td>country of issuance = "USA"</td>
+										</tr>
+										<tr>
+											<td>4012 0000 3333 0521</td>
+											<td>issuing bank ="NETWORK ONLY"</td>
+										</tr>
+									</table>
+
+									<br>
+
+									<h4>Sub-merchant Onboarding</h4>
+									<table>
+										<tr>
+											<th>Routing Numbers</th>
+										</tr>
+										<tr>
+											<td>071101307</td>
+										</tr>
+										<tr>
+											<td>071000013</td>
+										</tr>
+									</table>
+
+								</div>
+							</div>
+
+							<br>
+
+							<div class="row">
+								<div class="col-md-12">
+									<h4>AVS &amp; CVV</h4>
+									<table>
+										<tr>
+											<th>Type</th>
+											<th>Test Value</th>
+											<th>Status</th>
+											<th>Reason</th>
+										</tr>
+										<tr>
+											<td>Visa</td>
+											<td>4000 1111 1111 1511</td>
+											<td>gateway_rejected</td>
+											<td>fraud</td>
+										</tr>
+										<tr>
+											<td>CVV</td>
+											<td>200 (Amex 2000)</td>
+											<td>N (does not match)</td>
+											<td>Not Fraud</td>
+										</tr>
+										<tr>
+											<td>CVV</td>
+											<td>201 (Amex 2011)</td>
+											<td>U (not verified)</td>
+											<td>Not Fraud</td>
+										</tr>
+										<tr>
+											<td>CVV</td>
+											<td>301 (Amex 3011)</td>
+											<td>S (issuer does not participate)</td>
+											<td>Not Fraud</td>
+										</tr>
+										<tr>
+											<td>AVS - Postal Error</td>
+											<td>30000</td>
+											<td>E (AVS system error)</td>
+											<td>Not Fraud</td>
+										</tr>
+										<tr>
+											<td>AVS - Postal Error</td>
+											<td>30001</td>
+											<td>S (issuing bank does not support AVS)</td>
+											<td>Not Fraud</td>
+										</tr>
+										<tr>
+											<td>AVS - Postal Code</td>
+											<td>20000</td>
+											<td>N (does not match)</td>
+											<td>Not Fraud</td>
+										</tr>
+										<tr>
+											<td>AVS - Postal Code</td>
+											<td>20001</td>
+											<td>U (not verified)</td>
+											<td>Not Fraud</td>
+										</tr>
+										<tr>
+											<td>AVS - Street Address</td>
+											<td>starts with 200</td>
+											<td>N (does not match)</td>
+											<td>Not Fraud</td>
+										</tr>
+										<tr>
+											<td>AVS - Street Address</td>
+											<td>starts with 201</td>
+											<td>U (not verified)</td>
+											<td>Not Fraud</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      		</div>
+    		</div>
+  		</div>
+		</div>
 
 		<section class="form-wrapper">
 			<form id="form" method="post" action="checkout.php">
@@ -106,13 +334,13 @@
 							<option value="AU">AU</option>
 							<option value="JP">JP</option>
 						</select>
-						<label class="options-label" for="submit-for-settlement">Submit for Settlement: <input id="submit-for-settlement" name="submitForSettlement" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="submit-for-settlement">Submit for Settlement: <input id="submit-for-settlement" name="submit-for-settlement" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
 						<label class="options-label" for="vault">Store in Vault on Success: <input id="vault" name="vault" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
 					</div>
 					<div class="row">
-						<label class="options-label" for="skip-atf">Skip Advanced Fraud Tools: <input id="skip-atf" name="skipAtf" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
-						<label class="options-label" for="skip-avs">Skip AVS Rules: <input id="skip-avs" name="skipAvs" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
-						<label class="options-label" for="skip-cvv">Skip CVV Rules: <input id="skip-cvv" name="skipCvv" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="skip-atf">Skip Advanced Fraud Tools: <input id="skip-atf" name="skip-atf" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="skip-avs">Skip AVS Rules: <input id="skip-avs" name="skip-avs" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
+						<label class="options-label" for="skip-cvv">Skip CVV Rules: <input id="skip-cvv" name="skip-cvv" type="checkbox" value="true" checked data-toggle="toggle" data-size="mini" data-width="50"></label>
 					</div>
 				</div>
 

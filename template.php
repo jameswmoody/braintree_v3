@@ -1,38 +1,30 @@
-<html>
-	<head>
-		<?php
-			ini_set('display_errors',1);
-			error_reporting(1);
-			require_once '../lib/braintree.php';
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Braintree</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+    <link rel="stylesheet" href="style/main.css">
+  </head>
+  <body>
 
-			Braintree_Configuration::environment('sandbox');
-			Braintree_Configuration::merchantId('nxysnjdv3szj65ss');
-			Braintree_Configuration::publicKey('r9bbdc9t54mrpqkz');
-			Braintree_Configuration::privateKey('29da7b73fffa4613284308d08eeaf4ef');
+  <div class="container">
 
-			$clientToken = Braintree_ClientToken::generate();
-		?>
-		<title>Refund</title>
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
-		<link rel="stylesheet" href="../style/main.css">
-	</head>
-	<body>
+    <center><h1>Braintree PHP Integration</h1></center>
 
-	<div class="container">
-		<center><h1>Braintree PHP Integration</h1></center>
-
-		<section class="menu">
+    <section class="menu">
 			<section class="menu-box">
 				<center><h4>Navigation</h4></center>
 				<ul class="nav-links">
-					<li><a href="../index.php">Create a Transaction</a></li>
-					<li><a href="../void/index.php">Void a Transaction</a></li>
-					<li><a href="index.php">Issue a Refund</a></li>
-					<li><a href="../submerchant/index.php">Create a Sub-merchant</a></li>
-					<li><a href="../marketplace/index.php">Marketplace Transaction</a></li>
-					<li><a href="../subscription/index.php">Create a Subscription</a></li>
+          <li><a href="index.php">Create a Transaction</a></li>
+					<li><a href="void/index.php">Void a Transaction</a></li>
+					<li><a href="refund/index.php">Issue a Refund</a></li>
+					<li><a href="submerchant/index.php">Create a Sub-merchant</a></li>
+					<li><a href="marketplace/index.php">Marketplace Transaction</a></li>
+					<li><a href="subscription/index.php">Create a Subscription</a></li>
 				</ul>
 			</section>
 
@@ -282,29 +274,38 @@
     		</div>
   		</div>
 		</div>
+		<?php
 
-		<section class="form-wrapper">
-			<form id="form" method="post" action="refund.php">
-      <h3>Refund</h3>
-        <div class="row">
-          <div class="col-xs-4 field-box">
-            <input class="form-field" type="text" name="txn-id" placeholder="Transaction ID" value="<?php echo $txnId;?>">
-          </div>
-          <div class="col-xs-4 field-box">
-            <input class="form-field" type="text" name="amount" placeholder="Amount" value="<?php echo $amount;?>">
-          </div>
-          <div class="col-xs-4 field-box">
-            <input class="form-field" type="text" name="order-id" placeholder="Order ID (optional)" value="<?php echo $orderId;?>">
-          </div>
-        </div>
-        <br>
-				<input class="btn btn-danger" id="submit-button" type="submit" value="Refund">
-			</form>
-	</section>
+    // API Call
 
-	</div>
+    ?>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	</body>
+		<div class="container results">
+    	<h2>Result</h2>
+
+    	<?php if ($result->success): ?>
+      	<h3>Success!</h3>
+      	<p>Transaction ID is <?php echo($result->transaction->id)?>. Amount <?php echo($result->transaction->amount)?> has been <?php echo($result->transaction->status)?>.</p>
+
+
+    	<?php elseif ($result->transaction): ?>
+      	<h3>Error Processing Transaction</h3>
+      	<p>Response Code: <?php echo($result->transaction->processorResponseCode)?></p>
+      	<p>Response Text: <?php echo($result->transaction->processorResponseText)?></p>
+
+    	<?php else: ?>
+      	<h3>Validation Error</h3>
+      	<pre><?php print_r($result->errors->deepAll()); ?></pre>
+
+    	<?php endif ?>
+
+    	<h2>Result Variable</h2>
+    	<pre><?php print_r($result); ?></pre>
+
+    	</div>
+		</div>
+    <script src="https://js.braintreegateway.com/web/3.15.0/js/client.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
 </html>
