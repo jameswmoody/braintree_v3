@@ -197,74 +197,74 @@
 							<div class="row">
 								<div class="col-md-12">
 									<h4>AVS &amp; CVV</h4>
-									<table>
-										<tr>
-											<th>Type</th>
-											<th>Test Value</th>
-											<th>Status</th>
-											<th>Reason</th>
-										</tr>
-										<tr>
-											<td>Visa</td>
-											<td>4000 1111 1111 1511</td>
-											<td>gateway_rejected</td>
-											<td>fraud</td>
-										</tr>
-										<tr>
-											<td>CVV</td>
-											<td>200 (Amex 2000)</td>
-											<td>N (does not match)</td>
-											<td>Not Fraud</td>
-										</tr>
-										<tr>
-											<td>CVV</td>
-											<td>201 (Amex 2011)</td>
-											<td>U (not verified)</td>
-											<td>Not Fraud</td>
-										</tr>
-										<tr>
-											<td>CVV</td>
-											<td>301 (Amex 3011)</td>
-											<td>S (issuer does not participate)</td>
-											<td>Not Fraud</td>
-										</tr>
-										<tr>
-											<td>AVS - Postal Error</td>
-											<td>30000</td>
-											<td>E (AVS system error)</td>
-											<td>Not Fraud</td>
-										</tr>
-										<tr>
-											<td>AVS - Postal Error</td>
-											<td>30001</td>
-											<td>S (issuing bank does not support AVS)</td>
-											<td>Not Fraud</td>
-										</tr>
-										<tr>
-											<td>AVS - Postal Code</td>
-											<td>20000</td>
-											<td>N (does not match)</td>
-											<td>Not Fraud</td>
-										</tr>
-										<tr>
-											<td>AVS - Postal Code</td>
-											<td>20001</td>
-											<td>U (not verified)</td>
-											<td>Not Fraud</td>
-										</tr>
-										<tr>
-											<td>AVS - Street Address</td>
-											<td>starts with 200</td>
-											<td>N (does not match)</td>
-											<td>Not Fraud</td>
-										</tr>
-										<tr>
-											<td>AVS - Street Address</td>
-											<td>starts with 201</td>
-											<td>U (not verified)</td>
-											<td>Not Fraud</td>
-										</tr>
-									</table>
+                  <table>
+                    <tr>
+                      <th>Type</th>
+                      <th>Test Value</th>
+                      <th>Status</th>
+                      <th>Reason</th>
+                    </tr>
+                    <tr>
+                      <td>Visa</td>
+                      <td>4000 1111 1111 1511</td>
+                      <td>gateway_rejected</td>
+                      <td>Fraud</td>
+                    </tr>
+                    <tr>
+                      <td>CVV</td>
+                      <td>200 (Amex 2000)</td>
+                      <td>N (does not match)</td>
+                      <td>CVV</td>
+                    </tr>
+                    <tr>
+                      <td>CVV</td>
+                      <td>201 (Amex 2011)</td>
+                      <td>U (not verified)</td>
+                      <td>CVV</td>
+                    </tr>
+                    <tr>
+                      <td>CVV</td>
+                      <td>301 (Amex 3011)</td>
+                      <td>S (issuer does not participate)</td>
+                      <td>CVV</td>
+                    </tr>
+                    <tr>
+                      <td>AVS - Postal Error</td>
+                      <td>30000</td>
+                      <td>E (AVS system error)</td>
+                      <td>AVS</td>
+                    </tr>
+                    <tr>
+                      <td>AVS - Postal Error</td>
+                      <td>30001</td>
+                      <td>S (issuing bank does not support AVS)</td>
+                      <td>AVS</td>
+                    </tr>
+                    <tr>
+                      <td>AVS - Postal Code</td>
+                      <td>20000</td>
+                      <td>N (does not match)</td>
+                      <td>AVS</td>
+                    </tr>
+                    <tr>
+                      <td>AVS - Postal Code</td>
+                      <td>20001</td>
+                      <td>U (not verified)</td>
+                      <td>AVS</td>
+                    </tr>
+                    <tr>
+                      <td>AVS - Street Address</td>
+                      <td>starts with 200</td>
+                      <td>N (does not match)</td>
+                      <td>AVS</td>
+                    </tr>
+                    <tr>
+                      <td>AVS - Street Address</td>
+                      <td>starts with 201</td>
+                      <td>U (not verified)</td>
+                      <td>AVS</td>
+                    </tr>
+                  </table>
 								</div>
 							</div>
       		</div>

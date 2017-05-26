@@ -150,7 +150,7 @@
 										</tr>
 										<tr>
 											<td>4005 5192 0000 0004</td>
-											<td>Durbin regulated = "Yes"</td>
+											<td>Durbin = "Yes"</td>
 										</tr>
 										<tr>
 											<td>4012 0000 3333 0026</td>
@@ -174,11 +174,7 @@
 										</tr>
 										<tr>
 											<td>4012 0000 3333 0620</td>
-											<td>country of issuance = "USA"</td>
-										</tr>
-										<tr>
-											<td>4012 0000 3333 0521</td>
-											<td>issuing bank ="NETWORK ONLY"</td>
+											<td>issuance = "USA"</td>
 										</tr>
 									</table>
 
@@ -216,61 +212,61 @@
 											<td>Visa</td>
 											<td>4000 1111 1111 1511</td>
 											<td>gateway_rejected</td>
-											<td>fraud</td>
+											<td>Fraud</td>
 										</tr>
 										<tr>
 											<td>CVV</td>
 											<td>200 (Amex 2000)</td>
 											<td>N (does not match)</td>
-											<td>Not Fraud</td>
+											<td>CVV</td>
 										</tr>
 										<tr>
 											<td>CVV</td>
 											<td>201 (Amex 2011)</td>
 											<td>U (not verified)</td>
-											<td>Not Fraud</td>
+											<td>CVV</td>
 										</tr>
 										<tr>
 											<td>CVV</td>
 											<td>301 (Amex 3011)</td>
 											<td>S (issuer does not participate)</td>
-											<td>Not Fraud</td>
+											<td>CVV</td>
 										</tr>
 										<tr>
 											<td>AVS - Postal Error</td>
 											<td>30000</td>
 											<td>E (AVS system error)</td>
-											<td>Not Fraud</td>
+											<td>AVS</td>
 										</tr>
 										<tr>
 											<td>AVS - Postal Error</td>
 											<td>30001</td>
 											<td>S (issuing bank does not support AVS)</td>
-											<td>Not Fraud</td>
+											<td>AVS</td>
 										</tr>
 										<tr>
 											<td>AVS - Postal Code</td>
 											<td>20000</td>
 											<td>N (does not match)</td>
-											<td>Not Fraud</td>
+											<td>AVS</td>
 										</tr>
 										<tr>
 											<td>AVS - Postal Code</td>
 											<td>20001</td>
 											<td>U (not verified)</td>
-											<td>Not Fraud</td>
+											<td>AVS</td>
 										</tr>
 										<tr>
 											<td>AVS - Street Address</td>
 											<td>starts with 200</td>
 											<td>N (does not match)</td>
-											<td>Not Fraud</td>
+											<td>AVS</td>
 										</tr>
 										<tr>
 											<td>AVS - Street Address</td>
 											<td>starts with 201</td>
 											<td>U (not verified)</td>
-											<td>Not Fraud</td>
+											<td>AVS</td>
 										</tr>
 									</table>
 								</div>
