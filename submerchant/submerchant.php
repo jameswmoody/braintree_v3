@@ -278,7 +278,7 @@
 
 		ini_set('display_errors',1);
 		error_reporting(1);
-		require '../lib/braintree.php';
+		require '../lib/Braintree.php';
 
 		Braintree_Configuration::environment('sandbox');
 		Braintree_Configuration::merchantId('nxysnjdv3szj65ss');

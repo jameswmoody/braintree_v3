@@ -4,7 +4,7 @@
     <?php
       ini_set('display_errors', 1);
       error_reporting(1);
-      require_once '../lib/braintree.php';
+      require_once '../lib/Braintree.php';
 
       Braintree_Configuration::environment('sandbox');
       Braintree_Configuration::merchantId('nxysnjdv3szj65ss');
